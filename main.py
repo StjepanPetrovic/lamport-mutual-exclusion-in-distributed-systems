@@ -8,15 +8,22 @@ if __name__ == "__main__":
 
     numbers = []
     temp = []
+    last_arg = None
 
     for arg in sys.argv[1:]:
+        last_arg = arg
+
         if arg == '@':
             numbers.append(temp)
             temp = []
         else:
             temp.append(int(arg))
+
     if temp:
         numbers.append(temp)
+
+    if last_arg == '@':
+        numbers.append([])
 
     processes = []
 

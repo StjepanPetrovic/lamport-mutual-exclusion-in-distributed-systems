@@ -7,9 +7,9 @@ class WorkerProcess:
         self.port = port
         self.clock = clock
         self.time_to_work = time_to_work
+        self.socket = self.create_server_socket()
         self.process = Process(target=self.work)
         self.process.start()
-        self.socket = self.create_server_socket()
 
     def work(self):
         while True:
